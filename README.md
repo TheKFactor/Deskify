@@ -1,5 +1,9 @@
 # Deskify – IT Ticketing System
 
+🔗 Live Demo: https://deskify-it.vercel.app/
+
+💻 GitHub Repository: https://github.com/TheKFactor/deskify
+
 Deskify is a web-based IT Ticketing System inspired by enterprise service desk platforms such as ServiceNow and Jira. The application allows users to create, manage, and track support requests through a clean and intuitive interface.
 
 ## Features
