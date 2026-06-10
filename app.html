@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deskify Workspace</title>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="deskify-workspace.css?v=2">
+  <link rel="stylesheet" href="deskify-workspace.css?v=3">
+  <style>
+    body.app-body{display:grid!important;grid-template-columns:280px minmax(0,1fr)!important;min-height:100vh!important;overflow-x:hidden;background:#edf2f4!important;color:#172026}
+    .app-body .workspace{min-width:0!important;padding:32px!important}
+    .app-body .workspace-header{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;margin-bottom:20px!important}
+    .app-body .workspace-header h1{margin:0!important;font-size:42px!important;line-height:1.05!important}
+    .app-body .button{appearance:none!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:44px!important;border:1px solid transparent!important;border-radius:8px!important;padding:0 18px!important;cursor:pointer!important;font-weight:900!important}
+    .app-body .button.primary{color:#fff!important;background:#1f7a6b!important}
+    .app-body .button.secondary{color:#172026!important;border-color:#d7e0e5!important;background:#fff!important}
+    .app-body .button.full{width:100%!important}
+    .app-body .kpi-strip{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important;margin-bottom:18px!important}
+    .app-body .kpi-strip article{min-height:108px!important;padding:18px!important;border:1px solid #d7e0e5!important;border-radius:8px!important;background:#fff!important;box-shadow:0 12px 32px rgba(23,32,38,.06)!important}
+    .app-body .kpi-strip span{display:block!important;color:#66747c!important;font-size:13px!important;font-weight:800!important}
+    .app-body .kpi-strip strong{display:block!important;margin-top:12px!important;font-size:34px!important;line-height:1!important}
+    .app-body .tool-layout{display:grid!important;grid-template-columns:minmax(0,1fr) 420px!important;gap:18px!important;align-items:start!important}
+    .app-body .queue-panel,.app-body .detail-panel{min-width:0!important;overflow:hidden!important;border:1px solid #d7e0e5!important;border-radius:8px!important;background:#fff!important;box-shadow:0 12px 32px rgba(23,32,38,.06)!important}
+    .app-body .toolbar{display:grid!important;grid-template-columns:minmax(240px,1fr) 160px 140px!important;gap:12px!important;padding:16px!important;border-bottom:1px solid #d7e0e5!important;background:#fbfcfc!important}
+    .app-body label{display:grid!important;gap:7px!important;color:#65737b!important;font-size:12px!important;font-weight:900!important}
+    .app-body input,.app-body select,.app-body textarea{width:100%!important;max-width:100%!important;border:1px solid #d0dbe0!important;border-radius:8px!important;padding:11px 12px!important;color:#172026!important;background:#fff!important}
+    .app-body .ticket-table{width:100%!important;overflow:hidden!important}
+    .app-body .table-head,.app-body .ticket-row{display:grid!important;grid-template-columns:minmax(220px,1.7fr) minmax(120px,.85fr) 110px 78px 88px!important;gap:10px!important;align-items:center!important;width:100%!important;min-width:0!important;padding:14px 16px!important}
+    .app-body .table-head{color:#65737b!important;border-bottom:1px solid #d7e0e5!important;background:#f4f8f7!important;font-size:12px!important;font-weight:900!important;text-transform:uppercase!important}
+    .app-body .ticket-row{appearance:none!important;border:0!important;border-bottom:1px solid #edf1f3!important;background:#fff!important;cursor:pointer!important;text-align:left!important}
+    .app-body .ticket-row:hover,.app-body .ticket-row.active{background:#edf7f4!important}
+    .app-body .ticket-row>span,.app-body .table-head>span{min-width:0!important}
+    .app-body .ticket-id{display:block!important;color:#1f7a6b!important;font-size:12px!important;font-weight:900!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+    .app-body .ticket-summary{display:block!important;margin-top:4px!important;color:#172026!important;font-weight:900!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+    .app-body .pill{display:inline-flex!important;align-items:center!important;justify-content:center!important;max-width:100%!important;min-height:26px!important;border-radius:999px!important;padding:0 9px!important;font-size:12px!important;font-weight:900!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+    .app-body .pill.p1,.app-body .pill.risk{color:#fff!important;background:#b73737!important}.app-body .pill.p2{color:#fff!important;background:#d45f3c!important}.app-body .pill.p3{color:#fff!important;background:#3c6e99!important}.app-body .pill.p4,.app-body .pill.good,.app-body .pill.new,.app-body .pill.in-progress,.app-body .pill.resolved{color:#24564d!important;background:#d7eee8!important}.app-body .pill.waiting{color:#6c4a00!important;background:#f5dfaa!important}
+    .app-body .detail-panel{position:sticky!important;top:24px!important;max-height:calc(100vh - 48px)!important;overflow-y:auto!important;padding:22px!important}
+    .app-body .detail-title{margin:8px 0 12px!important;font-size:25px!important;line-height:1.16!important}
+    .app-body .detail-panel p{color:#5e6c74!important;line-height:1.55!important}
+    .app-body .detail-meta{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;margin:18px 0!important}
+    .app-body .detail-meta div{min-width:0!important;min-height:74px!important;padding:12px!important;border:1px solid #d7e0e5!important;border-radius:8px!important;background:#f7faf9!important}
+    .app-body .detail-meta span{display:block!important;color:#65737b!important;font-size:12px!important;font-weight:900!important;text-transform:uppercase!important}
+    .app-body .detail-meta strong{display:block!important;margin-top:7px!important;overflow-wrap:anywhere!important}
+    .app-body .detail-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;margin-bottom:14px!important}
+    .app-body .note-box{display:grid!important;gap:10px!important;margin-top:16px!important}
+    .app-body .timeline{display:grid!important;gap:12px!important;margin-top:20px!important}
+    .app-body .timeline h3{margin:0!important}.app-body .timeline article{border-left:3px solid #1f7a6b!important;padding-left:12px!important}.app-body .timeline small{color:#65737b!important;font-weight:900!important}
+    .app-body .insight-layout{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(320px,420px)!important;gap:18px!important;align-items:start!important}
+    .app-body .report-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important;grid-column:1/-1!important}
+    .app-body .report-grid article,.app-body .insight-panel,.app-body .knowledge-grid article{border:1px solid #d7e0e5!important;border-radius:8px!important;background:#fff!important;box-shadow:0 12px 32px rgba(23,32,38,.06)!important}
+    .app-body .report-grid article{min-height:132px!important;padding:20px!important}.app-body .insight-panel{padding:20px!important}.app-body .knowledge-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important;grid-column:1/-1!important}.app-body .knowledge-grid article{display:grid!important;gap:12px!important;padding:20px!important}
+    .app-body .report-hero,.app-body .report-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important;grid-column:1/-1!important}
+    .app-body .report-hero article,.app-body .report-grid article,.app-body .insight-panel,.app-body .knowledge-shell,.app-body .article-panel{border:1px solid #d7e0e5!important;border-radius:8px!important;background:#fff!important;box-shadow:0 12px 32px rgba(23,32,38,.06)!important}
+    .app-body .report-hero article,.app-body .report-grid article{min-height:132px!important;padding:20px!important}.app-body .insight-panel{padding:20px!important}
+    .app-body .knowledge-shell{overflow:hidden!important}.app-body .knowledge-toolbar{display:grid!important;grid-template-columns:minmax(260px,1fr) 180px!important;gap:12px!important;padding:16px!important;border-bottom:1px solid #d7e0e5!important;background:#fbfcfc!important}.app-body .knowledge-list{display:grid!important}
+    .app-body .article-row{display:grid!important;gap:5px!important;width:100%!important;border:0!important;border-bottom:1px solid #edf1f3!important;padding:16px!important;background:#fff!important;cursor:pointer!important;text-align:left!important}.app-body .article-row:hover,.app-body .article-row.active{background:#edf7f4!important}.app-body .article-row span{color:#1f7a6b!important;font-size:12px!important;font-weight:900!important;text-transform:uppercase!important}.app-body .article-row em{color:#65737b!important;font-style:normal!important;font-weight:800!important}
+    .app-body .article-panel{position:sticky!important;top:24px!important;padding:22px!important}.app-body .article-meta{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;margin:18px 0!important}.app-body .article-meta div{padding:12px!important;border:1px solid #d7e0e5!important;border-radius:8px!important;background:#f7faf9!important}.app-body .article-steps{display:grid!important;gap:10px!important;margin:18px 0!important;padding-left:22px!important;line-height:1.55!important}.app-body .article-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;margin-top:12px!important}
+    @media (max-width:1260px){.app-body .tool-layout,.app-body .insight-layout{grid-template-columns:1fr!important}.app-body .detail-panel{position:static!important;max-height:none!important}}
+    @media (max-width:860px){body.app-body{grid-template-columns:1fr!important}.app-body .workspace{padding:18px!important}.app-body .workspace-header{align-items:stretch!important;flex-direction:column!important}.app-body .toolbar,.app-body .kpi-strip,.app-body .detail-actions,.app-body .detail-meta,.app-body .report-grid,.app-body .knowledge-grid{grid-template-columns:1fr!important}}
+    @media (max-width:860px){body.app-body{grid-template-columns:1fr!important}.app-body .workspace{padding:18px!important}.app-body .workspace-header{align-items:stretch!important;flex-direction:column!important}.app-body .toolbar,.app-body .kpi-strip,.app-body .detail-actions,.app-body .detail-meta,.app-body .report-hero,.app-body .report-grid,.app-body .knowledge-toolbar,.app-body .article-meta,.app-body .article-actions{grid-template-columns:1fr!important}}
+  </style>
+</head>
+<body class="app-body">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">D</span>
+      <span>Deskify</span>
+    </a>
+    <nav class="side-nav" aria-label="Workspace navigation">
+      <button class="active" type="button" data-view="tickets">Tickets</button>
+      <button type="button" data-view="requests">Requests</button>
+      <button type="button" data-view="changes">Changes</button>
+      <button type="button" data-view="reports">Reports</button>
+      <button type="button" data-view="knowledge">Knowledge</button>
+    </nav>
+    <div class="sidebar-footer">
+      <span id="userName">Demo user</span>
+      <button class="text-button" id="resetDataButton" type="button">Reset demo data</button>
+      <button class="text-button" id="logoutButton" type="button">Log out</button>
+    </div>
+  </aside>
+
+  <main class="workspace">
+    <header class="workspace-header">
+      <div>
+        <p class="eyebrow" id="workspaceEyebrow">Service operations</p>
+        <h1 id="workspaceTitle">Ticket command center</h1>
+      </div>
+      <button class="button primary" id="newTicketButton" type="button">New ticket</button>
+    </header>
+
+    <section class="kpi-strip" aria-label="Ticket health metrics">
+      <article><span>Open tickets</span><strong id="metricOpen">0</strong></article>
+      <article><span>SLA at risk</span><strong id="metricRisk">0</strong></article>
+      <article><span>Unassigned</span><strong id="metricUnassigned">0</strong></article>
+      <article><span>Resolved today</span><strong id="metricResolved">0</strong></article>
+    </section>
+
+    <section class="tool-layout" id="toolLayout">
+      <div class="queue-panel">
+        <div class="toolbar">
+          <label class="search-field">
+            Search tickets
+            <input id="searchInput" placeholder="Ticket, requester, service...">
+          </label>
+          <label>
+            Status
+            <select id="statusFilter">
+              <option value="All">All</option>
+              <option value="New">New</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Waiting">Waiting</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+          </label>
+          <label>
+            Priority
+            <select id="priorityFilter">
+              <option value="All">All</option>
+              <option value="P1">P1</option>
+              <option value="P2">P2</option>
+              <option value="P3">P3</option>
+              <option value="P4">P4</option>
+            </select>
+          </label>
+        </div>
+        <div class="ticket-table" role="table" aria-label="Tickets">
+          <div class="table-head" role="row">
+            <span>Ticket</span>
+            <span>Requester</span>
+            <span>Status</span>
+            <span>Priority</span>
+            <span>SLA</span>
+          </div>
+          <div id="ticketRows"></div>
+        </div>
+      </div>
+
+      <aside class="detail-panel" id="detailPanel" aria-live="polite">
+        <p class="empty-state">Select a ticket to view details.</p>
+      </aside>
+    </section>
+  </main>
+
+  <dialog class="ticket-dialog" id="ticketDialog">
+    <form method="dialog" id="ticketForm">
+      <div class="dialog-header">
+        <h2>Create ticket</h2>
+        <button class="icon-button" value="cancel" type="submit" aria-label="Close">x</button>
+      </div>
+      <div class="form-grid">
+        <label>
+          Type
+          <select name="type" required>
+            <option>Incident</option>
+            <option>Request</option>
+            <option>Change</option>
+          </select>
+        </label>
+        <label>
+          Requester
+          <input name="requester" required placeholder="Customer name">
+        </label>
+        <label>
+          Service
+          <input name="service" required placeholder="Service name">
+        </label>
+        <label>
+          Summary
+          <input name="summary" required placeholder="Brief summary">
+        </label>
+        <label>
+          Description
+          <textarea name="description" rows="4" required placeholder="Detailed description"></textarea>
+        </label>
+        <label>
+          Priority
+          <select name="priority" required>
+            <option>P1</option>
+            <option>P2</option>
+            <option>P3</option>
+            <option>P4</option>
+          </select>
+        </label>
+        <label>
+          Assignee
+          <input name="assignee" placeholder="Assignee name">
+        </label>
+        <label>
+          SLA
+          <input name="sla" placeholder="e.g. 8h">
+        </label>
+      </div>
+      <div class="dialog-actions">
+        <button class="button secondary" type="submit" value="cancel">Cancel</button>
+        <button class="button primary" id="saveTicketButton" type="submit">Create ticket</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
+</body>
+</html>

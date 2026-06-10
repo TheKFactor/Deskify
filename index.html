@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deskify | Service desk software for modern teams</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="site-body">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Deskify home">
+      <span class="brand-mark">D</span>
+      <span>Deskify</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#features">Features</a>
+      <a href="#qa">Q&A</a>
+      <a href="#access">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">ITSM without the maze</p>
+        <h1>Deskify</h1>
+        <p class="hero-text">A calm service desk for incidents, requests, SLAs, ownership, and the daily rhythm of support teams.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#access">Start workspace</a>
+          <a class="button secondary" href="#features">See how it works</a>
+        </div>
+      </div>
+      <div class="hero-product" aria-label="Deskify ticket dashboard preview">
+        <div class="preview-topbar">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>Major incident queue</strong>
+        </div>
+        <div class="preview-grid">
+          <aside class="preview-rail">
+            <b>Queues</b>
+            <span>Assigned to me</span>
+            <span>VIP issues</span>
+            <span>Breached SLA</span>
+            <span>Change review</span>
+          </aside>
+          <div class="preview-list">
+            <article>
+              <small>INC-1048 - P1</small>
+              <strong>VPN access failing for finance</strong>
+              <p>Owner: Maya Rao - SLA 32m</p>
+            </article>
+            <article>
+              <small>REQ-2271 - P3</small>
+              <strong>New laptop request for onboarding</strong>
+              <p>Owner: Jordan Lee - SLA 7h</p>
+            </article>
+            <article>
+              <small>CHG-508 - Review</small>
+              <strong>Firewall rule update awaiting approval</strong>
+              <p>Owner: Priya Shah - Window tonight</p>
+            </article>
+          </div>
+          <div class="preview-detail">
+            <b>SLA health</b>
+            <div class="metric-row"><span>Open</span><strong>48</strong></div>
+            <div class="metric-row"><span>At risk</span><strong>6</strong></div>
+            <div class="metric-row"><span>Resolved today</span><strong>23</strong></div>
+            <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band" id="features">
+      <div class="section-heading">
+        <p class="eyebrow">What Deskify handles</p>
+        <h2>Everything a service team needs to move cleanly.</h2>
+      </div>
+      <div class="feature-grid">
+        <article>
+          <h3>Incident command</h3>
+          <p>Prioritize urgent work, assign owners, and keep stakeholders aligned with visible status and SLA timers.</p>
+        </article>
+        <article>
+          <h3>Request fulfillment</h3>
+          <p>Track employee requests from intake to completion with categories, impact, urgency, and requester details.</p>
+        </article>
+        <article>
+          <h3>Operational visibility</h3>
+          <p>See queue health, overdue work, workload by assignee, and resolution trends without digging through reports.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-section">
+      <div>
+        <p class="eyebrow">Built for daily use</p>
+        <h2>Quiet interface, serious workflow.</h2>
+        <p>Deskify keeps the noisy parts of ticketing organized: triage, assignment, status changes, customer updates, internal notes, and audit history.</p>
+      </div>
+      <div class="workflow-list">
+        <div><span>1</span><p>Capture a ticket with requester, service, impact, urgency, and description.</p></div>
+        <div><span>2</span><p>Route the work into the right queue and assign an accountable owner.</p></div>
+        <div><span>3</span><p>Track SLA risk, updates, and resolution notes from one workspace.</p></div>
+      </div>
+    </section>
+
+    <section class="section qa-section" id="qa">
+      <div class="section-heading">
+        <p class="eyebrow">Questions & answers</p>
+        <h2>Before you open the workspace.</h2>
+      </div>
+      <div class="qa-grid">
+        <details open>
+          <summary>Is Deskify meant to replace ServiceNow?</summary>
+          <p>This prototype is inspired by enterprise service desks, but it is intentionally lighter: fast triage, clean queues, ticket detail, and team visibility.</p>
+        </details>
+        <details>
+          <summary>Can teams manage incidents and requests together?</summary>
+          <p>Yes. The workspace includes incidents, requests, changes, priorities, categories, owners, status, and SLA state in one queue.</p>
+        </details>
+        <details>
+          <summary>Does login create a real account?</summary>
+          <p>For this local prototype, registration and login save a demo session in your browser only. No data is sent anywhere.</p>
+        </details>
+        <details>
+          <summary>What happens after login?</summary>
+          <p>You land in the Deskify workspace, where you can filter tickets, create new ones, inspect details, update status, and add timeline notes.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section access-section" id="access">
+      <div class="access-copy">
+        <p class="eyebrow">Enter Deskify</p>
+        <h2>Register or sign in to open the service desk.</h2>
+        <p>Use any work email and password for the local demo. Deskify remembers the last demo user on this browser.</p>
+      </div>
+      <div class="auth-panel" aria-label="Deskify registration and login">
+        <div class="tabs" role="tablist" aria-label="Authentication options">
+          <button class="tab active" type="button" data-auth-tab="register">Register</button>
+          <button class="tab" type="button" data-auth-tab="login">Login</button>
+        </div>
+        <form class="auth-form active" id="registerForm">
+          <label>
+            Full name
+            <input name="name" autocomplete="name" required placeholder="Avery Stone">
+          </label>
+          <label>
+            Work email
+            <input name="email" type="email" autocomplete="email" required placeholder="avery@company.com">
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" autocomplete="new-password" required minlength="6" placeholder="At least 6 characters">
+          </label>
+          <button class="button primary full" type="submit">Create workspace</button>
+        </form>
+        <form class="auth-form" id="loginForm">
+          <label>
+            Work email
+            <input name="email" type="email" autocomplete="email" required placeholder="avery@company.com">
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" autocomplete="current-password" required placeholder="Your demo password">
+          </label>
+          <button class="button primary full" type="submit">Open Deskify</button>
+        </form>
+        <p class="form-note" id="authNote" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Deskify prototype</span>
+    <a href="app.html">Open workspace</a>
+  </footer>
+
+  <script src="home.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+/* Deskify workspace overrides */
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.text-button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.text-button:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.app-body .insight-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px) !important;
+  gap: 18px !important;
+  align-items: start !important;
+}
+
+.app-body .report-hero,
+.app-body .report-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  grid-column: 1 / -1 !important;
+}
+
+.app-body .report-hero article,
+.app-body .report-grid article,
+.app-body .insight-panel,
+.app-body .knowledge-grid article,
+.app-body .knowledge-shell,
+.app-body .article-panel {
+  border: 1px solid #d7e0e5 !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  box-shadow: 0 12px 32px rgba(23, 32, 38, .06) !important;
+}
+
+.app-body .report-hero article,
+.app-body .report-grid article {
+  min-height: 132px !important;
+  padding: 20px !important;
+}
+
+.app-body .report-hero span,
+.app-body .report-grid span {
+  color: #65737b !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+}
+
+.app-body .report-hero strong,
+.app-body .report-grid strong {
+  display: block !important;
+  margin-top: 10px !important;
+  font-size: 38px !important;
+}
+
+.app-body .report-hero p,
+.app-body .report-grid p,
+.app-body .insight-panel p,
+.app-body .knowledge-grid p,
+.app-body .article-panel p,
+.app-body .knowledge-shell p {
+  color: #5e6c74 !important;
+  line-height: 1.55 !important;
+}
+
+.app-body .insight-panel {
+  padding: 20px !important;
+}
+
+.app-body .insight-panel h2,
+.app-body .knowledge-grid h2 {
+  margin: 0 0 16px !important;
+  font-size: 22px !important;
+}
+
+.app-body .bar-row {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  gap: 12px !important;
+  align-items: center !important;
+  margin-top: 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid #edf1f3 !important;
+}
+
+.app-body .bar-row i {
+  grid-column: 1 / -1 !important;
+  display: block !important;
+  height: 8px !important;
+  max-width: 100% !important;
+  border-radius: 999px !important;
+  background: #1f7a6b !important;
+}
+
+.app-body .priority-donut {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.app-body .priority-donut div {
+  min-height: 86px !important;
+  padding: 14px !important;
+  border: 1px solid #d7e0e5 !important;
+  border-radius: 8px !important;
+  background: #f7faf9 !important;
+}
+
+.app-body .priority-donut span {
+  color: #65737b !important;
+  font-weight: 900 !important;
+}
+
+.app-body .priority-donut strong {
+  display: block !important;
+  margin-top: 8px !important;
+  font-size: 30px !important;
+}
+
+.app-body .mini-ticket {
+  display: grid !important;
+  width: 100% !important;
+  gap: 5px !important;
+  margin-top: 10px !important;
+  border: 1px solid #d7e0e5 !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  background: #fbfcfc !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  font-weight: 900 !important;
+}
+
+.app-body .mini-ticket span {
+  color: #1f7a6b !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+}
+
+.app-body .knowledge-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  grid-column: 1 / -1 !important;
+}
+
+.app-body .knowledge-shell {
+  overflow: hidden !important;
+}
+
+.app-body .knowledge-toolbar {
+  display: grid !important;
+  grid-template-columns: minmax(260px, 1fr) 180px !important;
+  gap: 12px !important;
+  padding: 16px !important;
+  border-bottom: 1px solid #d7e0e5 !important;
+  background: #fbfcfc !important;
+}
+
+.app-body .knowledge-list {
+  display: grid !important;
+  gap: 12px !important;
+}
