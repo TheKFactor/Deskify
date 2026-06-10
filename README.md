@@ -62,7 +62,7 @@ Deskify/
 
 Kiran Bhowmick
 
-BBA-CA Student | IT Support & Data Analytics Enthusiast
+BBA-CA Student | Tech, IT Support & Data Analytics Enthusiast
 
 LinkedIn:
 https://www.linkedin.com/in/kiran-bhowmick-67a877281
